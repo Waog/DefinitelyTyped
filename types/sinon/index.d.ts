@@ -486,7 +486,10 @@ declare namespace Sinon {
     /**
      * Replaces a type with a Sinon stub if it's a function.
      */
-    type SinonStubbedMember<T> = T extends Function ? SinonStub : T;
+    // TODO: changed this line because it's not compilable by tsc 2.6.1
+    // see https://github.com/DefinitelyTyped/DefinitelyTyped/issues/27038
+    // type SinonStubbedMember<T> = T extends Function ? SinonStub : T;
+    type SinonStubbedMember<T> = T;
 
     interface SinonFake {
         (): SinonSpy;
